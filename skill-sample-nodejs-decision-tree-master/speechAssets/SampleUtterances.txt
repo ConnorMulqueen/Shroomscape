@@ -18,6 +18,15 @@ OpenDoorIntent open the door slowly
 OpenDoorIntent open the door quickly
 OpenDoorIntent open the wooden door
 OpenDoorIntent open the wood door
+OpenDoorIntent go to the door
+OpenDoorIntent go towards the door
+OpenDoorIntent go to the wooden door
+OpenDoorIntent go to the small door
+OpenDoorIntent go towards the wooden door
+OpenDoorIntent go towards the small door
+OpenDoorIntent walk towards the door
+OpenDoorIntent walk towards the wooden door
+OpenDoorIntent walk towards the small door
 
 TakeTorchIntent take the torch
 TakeTorchIntent take torch
@@ -31,6 +40,8 @@ GoDownCaveIntent go into the darkness
 GoDownCaveIntent walk down the cave
 GoDownCaveIntent walk down the dark cave
 GoDownCaveIntent walk into the darkness
+GoDownCaveIntent walk towards the darkness
+
 
 GoToChestIntent open chest
 GoToChestIntent open the chest
@@ -39,6 +50,10 @@ GoToChestIntent open the chest quickly
 GoToChestIntent open the unlocked chest
 GoToChestIntent go to the chest
 GoToChestIntent walk to chest
+GoToChestIntent go towards the chest
+GoToChestIntent walk towards the chest
+GoToChestIntent walk towards the glowing chest
+GoToChestIntent go towards the glowing chest
 
 ConsumeMushroomIntent eat mushroom
 ConsumeMushroomIntent consume mushroom
@@ -48,6 +63,12 @@ ConsumeMushroomIntent consume the mushroom
 PutMushroomInInventoryIntent take the mushroom
 PutMushroomInInventoryIntent put the mushroom in bags
 PutMushroomInInventoryIntent put the mushroom in my bag
+PutMushroomInInventoryIntent yes take the mushroom
+PutMushroomInInventoryIntent yeah take the mushroom
+PutMushroomInInventoryIntent place the mushroom in inventory
+PutMushroomInInventoryIntent place the mushroom in my inventory
+PutMushroomInInventoryIntent put the mushroom in inventory
+PutMushroomInInventoryIntent put the mushroom in my inventory
 
 RepeatIntent say that again
 RepeatIntent repeat that please
@@ -65,13 +86,17 @@ GiveMushroomIntent give mushroom
 GiveMushroomIntent okay here
 GiveMushroomIntent pull out mushroom
 GiveMushroomIntent sheesh here ya go
+GiveMushroomIntent here ya go
+GiveMushroomIntent here you go
+GiveMushroomIntent okay
 
-DontGiveMushroomIntent what mushroom
 DontGiveMushroomIntent no its mine
-DontGiveMushroomIntent no
 DontGiveMushroomIntent no sorry
 DontGiveMushroomIntent its my mushroom
 DontGiveMushroomIntent nope
+DontGiveMushroomIntent nope sorry
+DontGiveMushroomIntent nah
+DontGiveMushroomIntent maybe next time
 DontGiveMushroomIntent no way
 DontGiveMushroomIntent not happening
 DontGiveMushroomIntent why

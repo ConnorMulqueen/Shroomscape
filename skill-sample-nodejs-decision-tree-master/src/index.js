@@ -28,13 +28,13 @@ var nodes = [{ "node": 1, "message": "You awaken confused in a cave in almost co
              { "node": 3, "message": "You take the torch in your left hand and continue to look around. You see a mysterious glowing chest, a dark path down the cave, and a small door, what do you wish to do?","open door": 2, "take torch": 3, "go down the cave": 4, "open chest": 5, "consume mushroom": 6 },
 
              //go down cave
-             { "node": 4, "message": "You proceed down the cave and come accross a small terrifying disgusting creature. He is coughing relentlessly and looks as if he hasn't ate in months. He speaks - 'GIVE ME THE MAGICAL MUSHROOM!'. How do you respond?", "here it is": 8, "no it's mine": 9 },
+             { "node": 4, "message": "You proceed down the cave and come accross a small terrifying disgusting creature. He is coughing relentlessly and looks as if he hasn't ate in months. He speaks - 'GIVE ME THE MAGICAL MUSHROOM!'. How do you respond? ", "here it is": 8, "no it's mine": 9 },
 
              //open chest
-             { "node": 5, "message": "You open the chest to find a single plump green spotted mushroom, do you want to put the mushroom in your inventory?", "take the mushroom":7, "go back": 9 },
+             { "node": 5, "message": "You open the chest to find a single plump green spotted mushroom, what do you want to do with the mushroom? (leave it? eat it? put it in inventory?)", "take the mushroom":7, "go back": 9, "eat the mushroom": 6},
 
              //consume mushroom
-             { "node": 6, "message": "After consuming the mushroom, you notice the cave walls that were once a dark grey start to become a dull red. You're still standing next to the sole lit torch and the mysterious darkness that lingers in the rest of the cave, what do you wish to do?", "yes": 12, "no": 13 },
+             { "node": 6, "message": "After consuming the mushroom, you lose function and die. Good game, thanks for playing." },
 
              //put mushroom in inventory
              { "node": 7, "message": "You place the weird mushroom in your back pocket. You see a dark path down the cave and a small door, what do you wish to do?", "go down the cave": 4, "open the door": 2 },
@@ -49,8 +49,7 @@ var nodes = [{ "node": 1, "message": "You awaken confused in a cave in almost co
              { "node": 10, "message": "WHY WOULDN'T YOU GIVE ME THE MUSHROOM? I WOULD'VE SHOWED YOU THE WAY OUT IF YOU DID. Perhaps I still will if you can answer my riddle 'Thirty white horses on a red hill, First they champ, Then they stamp, Then they stand still.'", "teeth": 11},
 
              //answer gollums riddle
-             {"node": 11, "message": "TEEEETH!!! Correct, Now follow me for the way out!             Congratulations, You Win!"},
-
+             {"node": 11, "message": "TEETH! Correct, Now follow me for the way out!             Congratulations, You Win!"},
 
             //give gollum mushroom
             {"node": 12, "message": "YES! MY PRECIOUS! Follow me to find the way out of the cave!         Congratulations, You Win!"},
@@ -84,7 +83,7 @@ var decisionMessage = "I think you would make a good";
 var playAgainMessage = "Say 'tell me more' to hear a short description for this profession, or do you want to play again?";
 
 // this is the help message during the setup at the beginning of the game
-var helpMessage = "I will ask you some questions that will identify what you would be best at. Want to start now?";
+var helpMessage = "Welcome to dungeons and dragons";
 
 // This is the goodbye message when the user has asked to quit the game
 var goodbyeMessage = "Ok, see you next time!";
@@ -226,8 +225,10 @@ var askQuestionHandlers = Alexa.CreateStateHandler(states.ASKMODE, {
       this.emit(':ask', message, message);
     },
     'PutMushroomInInventoryIntent': function () {
-      mushroomInInventory = true;
-      this.attributes.currentNode = 7;
+      if(this.attributes.currentNode == 5) {
+        mushroomInInventory = true;
+        this.attributes.currentNode = 7;
+      }
       var message = helper.getSpeechForNode(this.attributes.currentNode);
       this.emit(':ask', message, message);
     },
@@ -242,18 +243,24 @@ var askQuestionHandlers = Alexa.CreateStateHandler(states.ASKMODE, {
       this.emit(':ask', message, message);
     },
     'DontGiveMushroomIntent': function () {
-      this.attributes.currentNode = 10;
-      var message = helper.getSpeechForNode(this.attributes.currentNode);
-      this.emit(':ask', message, message);
+      if(this.attributes.currentNode ==4) {
+        this.attributes.currentNode = 10; //able to advance
+      }
+      var message= helper.getSpeechForNode(this.attributes.currentNode);
+      this.emit(':ask',message,message);
     },
     'AnswerGollumRiddleIntent': function () {
-      this.attributes.currentNode = 11;
-      var message = helper.getSpeechForNode(this.attributes.currentNode);
-      this.emit(':ask', message, message);
+      if(this.attributes.currentNode == 10) {
+        this.attributes.currentNode = 11;//able to advance
+      }
+      var message= helper.getSpeechForNode(this.attributes.currentNode);
+      this.emit(':ask',message,message);
     },
     'AnswerChestRiddleIntent': function () {
-      mushroomInInventory = true;
-      this.attributes.currentNode = 5;
+      if(this.attributes.currentNode == 8) {
+        mushroomInInventory = true;
+        this.attributes.currentNode = 5;
+      }
       var message = helper.getSpeechForNode(this.attributes.currentNode);
       this.emit(':ask', message, message);
     },
