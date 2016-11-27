@@ -1,0 +1,84 @@
+DescriptionIntent {Description} please
+DescriptionIntent please {Description}
+DescriptionIntent {Description}
+DescriptionIntent can you {Description}
+DescriptionIntent tell me about that
+DescriptionIntent description please
+AMAZON.StopIntent stop
+AMAZON.StopIntent off
+AMAZON.StopIntent shut up
+AMAZON.StartOverIntent start over
+AMAZON.StartOverIntent restart
+AMAZON.StartOverIntent start again
+AMAZON.StartOverIntent play again
+
+OpenDoorIntent open door
+OpenDoorIntent open the door
+OpenDoorIntent open the door slowly
+OpenDoorIntent open the door quickly
+OpenDoorIntent open the wooden door
+OpenDoorIntent open the wood door
+
+TakeTorchIntent take the torch
+TakeTorchIntent take torch
+TakeTorchIntent take burning torch
+TakeTorchIntent take the burning torch
+TakeTorchIntent take the only torch
+
+GoDownCaveIntent go down the cave
+GoDownCaveIntent go down the dark cave
+GoDownCaveIntent go into the darkness
+GoDownCaveIntent walk down the cave
+GoDownCaveIntent walk down the dark cave
+GoDownCaveIntent walk into the darkness
+
+GoToChestIntent open chest
+GoToChestIntent open the chest
+GoToChestIntent open the chest slowly
+GoToChestIntent open the chest quickly
+GoToChestIntent open the unlocked chest
+GoToChestIntent go to the chest
+GoToChestIntent walk to chest
+
+ConsumeMushroomIntent eat mushroom
+ConsumeMushroomIntent consume mushroom
+ConsumeMushroomIntent eat the mushroom
+ConsumeMushroomIntent consume the mushroom
+
+PutMushroomInInventoryIntent take the mushroom
+PutMushroomInInventoryIntent put the mushroom in bags
+PutMushroomInInventoryIntent put the mushroom in my bag
+
+RepeatIntent say that again
+RepeatIntent repeat that please
+RepeatIntent repeat that
+RepeatIntent what
+
+GoToDefaultIntent leave door
+GoToDefaultIntent leave chest
+GoToDefaultIntent go back
+
+GiveMushroomIntent okay here it is
+GiveMushroomIntent here it is
+GiveMushroomIntent okay calm down here it is
+GiveMushroomIntent give mushroom
+GiveMushroomIntent okay here
+GiveMushroomIntent pull out mushroom
+GiveMushroomIntent sheesh here ya go
+
+DontGiveMushroomIntent what mushroom
+DontGiveMushroomIntent no its mine
+DontGiveMushroomIntent no
+DontGiveMushroomIntent no sorry
+DontGiveMushroomIntent its my mushroom
+DontGiveMushroomIntent nope
+DontGiveMushroomIntent no way
+DontGiveMushroomIntent not happening
+DontGiveMushroomIntent why
+
+AnswerGollumRiddleIntent teeth
+
+AnswerChestRiddleIntent log n
+AnswerChestRiddleIntent Big-Oh log n
+AnswerChestRiddleIntent Big Oh log n
+AnswerChestRiddleIntent Big O log n

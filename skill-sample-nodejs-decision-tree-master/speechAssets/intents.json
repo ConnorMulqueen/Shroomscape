@@ -1,0 +1,64 @@
+{
+	"intents": [{
+      "intent": "AMAZON.YesIntent",
+      "slots": []
+    }, {
+      "intent": "AMAZON.NoIntent",
+      "slots": []
+    }, {
+		"intent": "AMAZON.HelpIntent",
+		"slots": []
+	}, {
+		"intent": "AMAZON.StopIntent",
+		"slots": []
+	}, {
+		"intent": "AMAZON.CancelIntent",
+		"slots": []
+	},{
+		"intent": "AMAZON.StartOverIntent",
+		"slots": []
+	},{
+		"intent": "OpenDoorIntent",
+		"slots": []
+	},{
+		"intent": "TakeTorchIntent",
+		"slots": []
+	},{
+		"intent": "GoDownCaveIntent",
+		"slots": []
+	}, {
+		"intent": "GoToChestIntent",
+		"slots": []
+	},{
+		"intent": "ConsumeMushroomIntent",
+		"slots": []
+	},{
+		"intent": "PutMushroomInInventoryIntent",
+		"slots": []
+	},{
+		"intent": "RepeatIntent",
+		"slots": []
+	},{
+		"intent": "GoToDefaultIntent",
+		"slots": []
+	},{
+		"intent": "GiveMushroomIntent",
+		"slots": []
+	},{
+		"intent": "DontGiveMushroomIntent",
+		"slots": []
+	},{
+		"intent": "AnswerGollumRiddleIntent",
+		"slots": []
+	},{
+		"intent": "AnswerChestRiddleIntent",
+		"slots": []
+	},{
+		"intent": "DescriptionIntent",
+		 "slots": [
+        {
+          "name": "Description",
+          "type": "descriptionType"
+        }]
+	}]
+}
