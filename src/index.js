@@ -22,7 +22,7 @@ var mushroomConsumed = false;
 var nodes = [{ "node": 1, "message": "You awaken confused in a cave in almost complete darkness. A single torch is lit and the air smells of putrid rotting flesh. You see a mysterious glowing chest, a dark path down the cave, and a small door, what do you wish to do?", "open door": 2, "take torch": 3, "go down the cave": 4, "go to the chest": 8, "consume mushroom": 6 },
 
               //open door
-             { "node": 2, "message": "You open the wooden door to a room packed to the brim with dead bodies. Some bodies fall on you when you opened the door and you can't enter because there are literally so many bodies. The stench is just awful, if I were to guess it's at least like 42 disease-infested bodies in the room.", "leave the door": 4},
+             { "node": 2, "message": "You open the wooden door to a room packed to the brim with dead bodies. Some bodies fall on you when you opened the door and you can't enter because there are literally so many bodies. The stench is just awful, if I were to guess it's at least like 42 disease-infested bodies in the room. There is no possible way you can enter, you should probably go back.", "leave the door": 4},
 
              //take torch
              { "node": 3, "message": "You take the torch in your left hand and continue to look around. You see a mysterious glowing chest, a dark path down the cave, and a small door, what do you wish to do?","open door": 2, "take torch": 3, "go down the cave": 4, "open chest": 5, "consume mushroom": 6 },
@@ -34,7 +34,7 @@ var nodes = [{ "node": 1, "message": "You awaken confused in a cave in almost co
              { "node": 5, "message": "You open the chest to find a single plump green spotted mushroom, what do you want to do with the mushroom? (leave it? eat it? put it in inventory?)", "take the mushroom":7, "go back": 9, "eat the mushroom": 6},
 
              //consume mushroom
-             { "node": 6, "message": "After consuming the mushroom, you lose function and die. Good game, thanks for playing." },
+             { "node": 6, "message": "After consuming the mushroom, you lose function and die. Good game, thanks for playing. A small creature tosses you into a room full of dead bodies, Would you like to play again or rot here eternally?", "play again": 1, "rot here": 13 },
 
              //put mushroom in inventory
              { "node": 7, "message": "You place the weird mushroom in your back pocket. You see a dark path down the cave and a small door, what do you wish to do?", "go down the cave": 4, "open the door": 2 },
@@ -54,6 +54,10 @@ var nodes = [{ "node": 1, "message": "You awaken confused in a cave in almost co
             //give gollum mushroom
             {"node": 12, "message": "YES! MY PRECIOUS! Follow me to find the way out of the cave!         Congratulations, You Win!"},
 
+            {"node": 13, "message": "Goodnight."},
+
+            {"node": 14, "message": "You proceed down the cave without a source of light and suddenly get jumped by an orc-like figure! You die. A small creature tosses you into a room full of dead bodies, Would you like to play again or rot here eternally?","play again": 1, "rot here": 13}
+
              //default room without torch
 
              //default room without torch and door chest
@@ -65,7 +69,7 @@ var visited;
 // These are messages that Alexa says to the user during conversation
 
 // This is the intial welcome message
-var welcomeMessage = "Welcome to dungeons and dragons, are you ready to play?";
+var welcomeMessage = "Welcome to our Bina Term Project, are you ready to play?";
 
 // This is the message that is repeated if the response to the initial welcome message is not heard
 var repeatWelcomeMessage = "Say yes to start the game or no to quit.";
@@ -194,8 +198,9 @@ var askQuestionHandlers = Alexa.CreateStateHandler(states.ASKMODE, {
     'GoDownCaveIntent': function () {
         // Handle Yes intent.
         if(torchTaken == false) {
-          var message = "You proceed down the cave without a source of light and suddenly get jumped by an orc-like figure! You die."
-          this.emit(':tell',message, message);
+          this.attributes.currentNode = 14;
+          var message = helper.getSpeechForNode(this.attributes.currentNode);
+          this.emit(':ask',message, message);
         }
         else {
           this.attributes.currentNode = 4
@@ -266,6 +271,19 @@ var askQuestionHandlers = Alexa.CreateStateHandler(states.ASKMODE, {
     },
     'GoToDefaultIntent': function () {
       this.attributes.currentNode = 9;
+      var message = helper.getSpeechForNode(this.attributes.currentNode);
+      this.emit(':ask', message, message);
+    },
+    'PlayAgainIntent': function () {
+      this.attributes.currentNode = 1;
+      torchTaken = false;
+      mushroomInInventory = false;
+      mushroomConsumed = false;
+      var message = helper.getSpeechForNode(this.attributes.currentNode);
+      this.emit(':ask', message, message);
+    },
+    'RotIntent': function () {
+      this.attributes.currentNode = 13;
       var message = helper.getSpeechForNode(this.attributes.currentNode);
       this.emit(':ask', message, message);
     },

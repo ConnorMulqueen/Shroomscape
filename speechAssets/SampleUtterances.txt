@@ -42,7 +42,6 @@ GoDownCaveIntent walk down the dark cave
 GoDownCaveIntent walk into the darkness
 GoDownCaveIntent walk towards the darkness
 
-
 GoToChestIntent open chest
 GoToChestIntent open the chest
 GoToChestIntent open the chest slowly
@@ -56,6 +55,8 @@ GoToChestIntent walk towards the glowing chest
 GoToChestIntent go towards the glowing chest
 
 ConsumeMushroomIntent eat mushroom
+ConsumeMushroomIntent eat
+ConsumeMushroomIntent eat it
 ConsumeMushroomIntent consume mushroom
 ConsumeMushroomIntent eat the mushroom
 ConsumeMushroomIntent consume the mushroom
@@ -107,3 +108,15 @@ AnswerChestRiddleIntent log n
 AnswerChestRiddleIntent Big-Oh log n
 AnswerChestRiddleIntent Big Oh log n
 AnswerChestRiddleIntent Big O log n
+
+PlayAgainIntent play again
+PlayAgainIntent play
+PlayAgainIntent try again
+
+RotIntent rot
+RotIntent rot please
+RotIntent rot Now
+RotIntent rot forever
+RotIntent rot here
+RotIntent rot in the room
+RotIntent uhhhhh

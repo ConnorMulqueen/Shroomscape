@@ -54,6 +54,12 @@
 		"intent": "AnswerChestRiddleIntent",
 		"slots": []
 	},{
+		"intent": "PlayAgainIntent",
+		"slots": []
+	},{
+		"intent": "RotIntent",
+		"slots": []
+	},{
 		"intent": "DescriptionIntent",
 		 "slots": [
         {
